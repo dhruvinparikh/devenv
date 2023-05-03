@@ -10,6 +10,7 @@ services:
     - type: bind
       source: /var/run/docker.sock
       target: /var/run/docker.sock
+      command: sh ./terminal-config.sh
   foundry-service:
     entrypoint:
     - sleep
