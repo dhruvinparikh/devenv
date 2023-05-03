@@ -3,7 +3,6 @@ services:
     entrypoint:
     - sleep
     - infinity
-    - sh ./terminal-config.sh
     image: docker/dev-environments-go:stable-1
     init: true
     volumes:
