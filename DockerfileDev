@@ -1,7 +1,4 @@
 FROM alpine:latest
 
-RUN apk update && apk add zsh git
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.zsh/zsh-autosuggestions
-RUN echo 'source /root/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> /root/.zshrc
-
-CMD ["/bin/zsh"]
+RUN cat '/root/zshrc-config' > /root/.zshrc
