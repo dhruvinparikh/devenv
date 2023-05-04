@@ -1,6 +1,6 @@
 FROM docker/dev-environments-go:stable-1
 
-RUN apk add git
+RUN apt-get install -y git
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.zsh/zsh-autosuggestions
 COPY zshrc-config /tmp/zshrc-config
 RUN cat /tmp/zshrc-config > /root/.zshrc
