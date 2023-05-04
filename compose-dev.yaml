@@ -1,9 +1,12 @@
 services:
   go-service:
-    entrypoint: sh ./terminal-config.sh && sleep infinity
+    entrypoint:
+     - sleep 
+     - infinity
     image: docker/dev-environments-go:stable-1
     init: true
-    working_dir: /app
+    run: |
+      git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.zsh/zsh-autosuggestions
     volumes:
     - type: bind
       source: /var/run/docker.sock
