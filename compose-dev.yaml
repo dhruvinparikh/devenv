@@ -10,7 +10,7 @@ services:
       dockerfile: DockerfileDev
     volumes:
     - type: bind
-      source: $PWD/zshrc-config
+      source: ./zshrc-config
       target: /root/zshrc-config
     - type: bind
       source: /var/run/docker.sock
