@@ -1,6 +1,8 @@
-FROM alpine:latest
+FROM docker/dev-environments-go:stable-1
 
 RUN apk add git
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.zsh/zsh-autosuggestions
 COPY zshrc-config /tmp/zshrc-config
 RUN cat /tmp/zshrc-config > /root/.zshrc
+
+CMD ["sleep","infinity"]
