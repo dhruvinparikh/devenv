@@ -1,6 +1,6 @@
 services:
   go-service:
-    entrypoint: sh ./terminal-config.sh && sleep infinity
+    entrypoint: sh $PWD/terminal-config.sh && sleep infinity
     image: docker/dev-environments-go:stable-1
     init: true
     volumes:
