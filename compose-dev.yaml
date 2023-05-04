@@ -5,8 +5,9 @@ services:
      - infinity
     image: docker/dev-environments-go:stable-1
     init: true
-    run: |
-      git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.zsh/zsh-autosuggestions
+    build:
+      context: .
+      dockerfile: DockerfileDev
     volumes:
     - type: bind
       source: /var/run/docker.sock
