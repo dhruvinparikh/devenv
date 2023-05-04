@@ -1,9 +1,5 @@
 services:
   go-service:
-    entrypoint:
-     - sleep 
-     - infinity
-    image: docker/dev-environments-go:stable-1
     init: true
     build:
       context: .
@@ -25,4 +21,3 @@ services:
     - type: bind
       source: /var/run/docker.sock
       target: /var/run/docker.sock
-
