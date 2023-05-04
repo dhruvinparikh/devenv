@@ -1,15 +1,12 @@
 services:
   go-service:
-    entrypoint:
-    - sleep
-    - infinity
+    entrypoint: sh ./terminal-config.sh && sleep infinity
     image: docker/dev-environments-go:stable-1
     init: true
     volumes:
     - type: bind
       source: /var/run/docker.sock
       target: /var/run/docker.sock
-    command: sh ./terminal-config.sh
   foundry-service:
     entrypoint:
     - sleep
