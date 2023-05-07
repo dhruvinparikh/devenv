@@ -1,7 +1,7 @@
 {
     "recommendations": [
+        "tintinweb.vscode-solidity-language",
         "ms-azuretools.vscode-docker",
-        "golang.go",
-        "ms-vscode.makefile-tools"
+        "tintinweb.solidity-visual-auditor"
     ]
 }
