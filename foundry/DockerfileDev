@@ -1,4 +1,4 @@
-FROM ghcr.io/foundry-rs/foundry
+FROM alpine:latest
 
 RUN apk add --no-cache zsh
 ENV SHELL /bin/zsh
