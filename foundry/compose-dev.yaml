@@ -1,5 +1,6 @@
 services:
   foundry-service:
+    image: ghcr.io/foundry-rs/foundry 
     entrypoint:
     - sleep
     - infinity
