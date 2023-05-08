@@ -2,9 +2,10 @@ FROM ghcr.io/foundry-rs/foundry
 
 RUN apk add --no-cache zsh
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh
-RUN git clone https://github.com/codespaces-io/codespaces.git /root/.oh-my-zsh/custom/themes/codespaces
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-COPY zshrc-config /tmp/zshrc-config
-RUN cat /tmp/zshrc-config > /root/.zshrc
+COPY .zshrc /tmp/.zshrc
+COPT codespaces.zsh-theme /tmp/codespaces.zsh-theme
+RUN cat /tmp/.zshrc > /root/.zshrc
+RUN cat /tmp/codespaces.zsh-theme > /root/.oh-my-zsh/custom/themes/codespaces.zsh-theme
 
 CMD ["sleep","infinity"]
