@@ -1,7 +1,6 @@
 {
     "recommendations": [
         "NomicFoundation.hardhat-solidity",
-        "ms-azuretools.vscode-docker",
-        "tintinweb.solidity-visual-auditor"
+        "ms-azuretools.vscode-docker"
     ]
 }
