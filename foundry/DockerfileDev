@@ -4,7 +4,7 @@ RUN apk add --no-cache zsh
 RUN git clone https://github.com/ohmyzsh/ohmyzsh.git /root/.oh-my-zsh
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 COPY .zshrc /tmp/.zshrc
-COPT codespaces.zsh-theme /tmp/codespaces.zsh-theme
+COPY codespaces.zsh-theme /tmp/codespaces.zsh-theme
 RUN cat /tmp/.zshrc > /root/.zshrc
 RUN cat /tmp/codespaces.zsh-theme > /root/.oh-my-zsh/custom/themes/codespaces.zsh-theme
 
