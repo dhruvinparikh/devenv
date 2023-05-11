@@ -13,7 +13,8 @@ RUN sed -i '/^foundry:/d' /etc/passwd
 RUN sed -i '/^foundry:/d' /etc/shadow
 RUN rm -rf /home/foundry
 
-RUN awk -F: '$3 == 1000 {print $1}' /etc/group
+RUN groupname=$(awk -F: '$3 == 1000 {print $1}' /etc/group) && \
+    delgroup "$groupname"
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="false"
