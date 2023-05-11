@@ -8,7 +8,10 @@ COPY codespaces.zsh-theme /tmp/codespaces.zsh-theme
 RUN cat /tmp/.zshrc > /root/.zshrc
 RUN cat /tmp/codespaces.zsh-theme > /root/.oh-my-zsh/custom/themes/codespaces.zsh-theme
 
-RUN groupadd --gid 1000 vscode
-RUN useradd -s /bin/bash -K MAIL_DIR=/dev/null --uid 1000 --gid vacode -m vscode
+RUN adduser -D -u 1000 -h /home/vscode -s /bin/bash vscode
+RUN addgroup -g 1000 -S foundry
+RUN addgroup vscode foundry
+RUN sed -i 's|vscode:.*$|vscode:*:12345:0:99999:7:::|' /etc/passwd
+RUN install -d -m 700 -o vscode -g foundry /home/vscode
 
 CMD ["sleep","infinity"]
