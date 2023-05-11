@@ -9,9 +9,9 @@ RUN cat /tmp/.zshrc > /root/.zshrc
 RUN cat /tmp/codespaces.zsh-theme > /root/.oh-my-zsh/custom/themes/codespaces.zsh-theme
 
 RUN adduser -D -u 1001 -h /home/vscode -s /bin/bash vscode
-RUN addgroup -g 10001 -S foundry
-RUN addgroup vscode foundry
+RUN addgroup -g 10001 -S foundrygrp
+RUN addgroup vscode foundrygrp
 RUN sed -i 's|vscode:.*$|vscode:*:12345:0:99999:7:::|' /etc/passwd
-RUN install -d -m 700 -o vscode -g foundry /home/vscode
+RUN install -d -m 700 -o vscode -g foundrygrp /home/vscode
 
 CMD ["sleep","infinity"]
