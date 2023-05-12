@@ -28,7 +28,6 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 # Run the command to install foundry from script
-RUN curl -L https://foundry.paradigm.xyz | bash \
-    && foundryup
+RUN curl -L https://foundry.paradigm.xyz | bash
 
 CMD ["sleep","infinity"]
