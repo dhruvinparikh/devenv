@@ -1,10 +1,12 @@
 services:
-  foundry-hardhat-vertigo:
-   build:
-    context: .
-    dockerfile: DockerfileDev
-   volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-   - type: bind
+  foundry-hardhat-vertigo-service:
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    volumes:
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
+    - type: bind
       source: /var/run/docker.sock
       target: /var/run/docker.sock
