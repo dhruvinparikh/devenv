@@ -1,5 +1,5 @@
-# golang docker dev
-golang Docker dev environment
+# foundry docker dev
+foundry Docker dev environment
 
 #### Known Issue
 

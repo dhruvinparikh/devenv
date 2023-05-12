@@ -1,0 +1,6 @@
+[submodule "foundry-hardhat-vertigo/lib/forge-std"]
+	path = foundry-hardhat-vertigo/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "foundry-hardhat-vertigo/lib/solmate"]
+	path = foundry-hardhat-vertigo/lib/solmate
+	url = https://github.com/rari-capital/solmate
