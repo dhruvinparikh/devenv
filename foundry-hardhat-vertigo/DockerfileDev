@@ -29,8 +29,8 @@ RUN apt-get update && apt-get install -y python3 python3-pip && export DEBIAN_FR
 
 # Run the command to install foundry from script
 RUN curl -L https://foundry.paradigm.xyz | bash
-RUN source $HOME/.bashrc
-RUN foundryup
+# RUN source $HOME/.bashrc
+# RUN foundryup
 
 # get node js install script and pass it to execute: 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
