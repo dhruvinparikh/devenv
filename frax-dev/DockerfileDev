@@ -1,0 +1,38 @@
+FROM ubuntu:latest
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get -y update
+RUN apt-get install -y build-essential cmake autoconf ffmpeg libjpeg-dev libpng-dev libffi-dev
+
+# set up locales (from http://jaredmarkell.com/docker-and-locales/)
+RUN apt-get install -y locales
+RUN locale-gen en_US.UTF-8
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+
+# install packages that were removed from the image because of the assumption that it would be used non-interactively (e.g., manpages)
+RUN yes | unminimize
+# set up useful command line tools
+RUN apt-get -y update && apt-get install -y vim colordiff tmux p7zip-full curl wget gnupg2 git pcregrep whois net-tools iputils-ping traceroute checkinstall jq miller exif rsync libheif-examples sox lame jupyter-notebook moreutils w3m expect shellcheck catimg mitmproxy cgdb sloccount feedgnuplot zip unzip
+
+# set up Java stuff
+RUN apt-get install -y default-jdk default-jre
+
+ENV NVM_DIR /root/.nvm
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install --lts
+
+# set up AWS CLI
+RUN apt-get install -y groff
+RUN curl --silent "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" && unzip -q awscliv2.zip && ./aws/install
+
+# set up Rust stuff using Rustup's unattended install mode
+RUN curl --silent https://sh.rustup.rs -sSf | sh -s -- -y
+
+# Run the command to install foundry from script
+RUN curl -L https://foundry.paradigm.xyz | bash
+RUN . /root/.bashrc && foundryup
+
+ENTRYPOINT [ "sleep", "infinity" ]
